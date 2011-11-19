@@ -17,66 +17,78 @@
           </ul>
       </div>
 
-    Grouping
+<div class="container">
 
-    ... Resource
+    <h2>Compute</h2>
 
-    [VERB] [URI PATH] - single sentence description
-    ... expanded to ...
-    Parameters
-    ----------
+    <h3>VM</h3>
 
-    <table class="zebra-striped">
-        <thead><tr><th>Parameter</th><th>Description</th></tr></thead>
-        <tbody>
-            <tr>
-                <td>parameter name</td>
-                <td>description of parameter</td>
-            </tr>
-            <tr>
-                <td>(optional)</td>
-                <td>.... example value ....</td>
-            </tr>
-        </tbody>
-    </table>
-    Parameter                  Description
-    param-name                 short description of variable
-    (required/optional)        ...example value...
+    <h3>Block Volume</h3>
 
-    Example Request
-    ---------------
+    <div class="row">
+        <div class="span16">
+            <div class="row">
+                <div class="span1">
+                    <a href="#" class="btn primary small">[VERB]</a>
+                </div>
+                <div class="span5 offset1">
+                    <a href="#" class="btn small">[/A/REALLY/LONG/URI]</a>
+                </div>
+                <div class="span6">
+                    single sentence description of resource
+                </div>
+            </div> <!-- row -->
+        </div>
+    </div>
 
-    [GET] {uri/embedded/values}
+    <div class="apidetail">
+        <div class="row">
+            <div class="span12">
+                <table class="zebra-striped">
+                    <thead>
+                        <tr><th>Parameter</th><th>Description</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>parameter name</td>
+                            <td>description of parameter</td>
+                        </tr>
+                        <tr>
+                            <td>(optional)</td>
+                            <td>.... example value ....</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-    Result
-    ------
+        <h4>Example Request</h4>
+        <div class="row">
+            <div class="span12">
+                <div class="row">
+                    <div class="span1">
+                        <span class="label success">[VERB]</span>
+                    </div>
+                    <div class="span10">
+                        [URI PATH]
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    dgz.fh.sh.sh.sfh.df.hd.
-    .fha.dfha.dfh.adfh.adf.h
-    /afdha/dfh/adfh/afdh/a/d
+        <h4>Result</h4>
+        <div class="row">
+            <div class="span12">
+                <pre class="prettyprint">
+dgz.fh.sh.sh.sfh.df.hd.
+.fha.dfha.dfh.adfh.adf.h
+/afdha/dfh/adfh/afdh/a/d
+                </pre>
+            </div>
+        </div>
+    </div> <!-- class apidetail -->
 
-
-    </tbody>
-    </table>
-    Parameter                  Description
-    param-name                 short description of variable
-    (required/optional)        ...example value...
-
-    Example Request
-    ---------------
-
-    [GET] {uri/embedded/values}
-
-    Result
-    ------
-
-    dgz.fh.sh.sh.sfh.df.hd.
-    .fha.dfha.dfh.adfh.adf.h
-    /afdha/dfh/adfh/afdh/a/d
-
-
-    ... end expand ...
-
+</div>
 
       <div class="container">
           <div id="footer">
