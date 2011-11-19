@@ -1,0 +1,17 @@
+body {
+    background: white url(../images/openstack-page-bkg.jpg) no-repeat scroll 0px 0px;
+    border-top: 3px solid #255e6e;
+    padding-top: 5px;
+    color: #535353;
+}
+
+#logo {
+    display: block
+    margin-top: 8px;
+    text-indent: -1000em;
+    background: url(../images/open-stack-logo.png) no-repeat left center;
+    height: 54px;
+    width: 177px;
+    margin-left: -10px;
+    }
+
