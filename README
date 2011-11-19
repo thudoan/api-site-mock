@@ -2,3 +2,11 @@ mockup site for OpenStack API developer pages
 
 see:
     http://heckj.github.com/api-site-mock
+
+to edit the pages:
+
+   clone this repo
+   git checkout gh-pages
+   (make your edits)
+   git commit
+   git push origin gh-pages
