@@ -13,5 +13,8 @@ body {
     height: 54px;
     width: 177px;
     margin-left: -10px;
-    }
+}
 
+.apidetail {
+    display: none
+}
