@@ -3,6 +3,9 @@ API SITE GOALS
 
 The goals for the site are to provide a unified, single page - browser
 viewable, but capable of bring printed - for all APIs relevant to OpenStack.
+The intent is primarily around immediate usability:
+ * list all the APIs in a single location
+ * had additional discoverable detail about those apis without having to navigate to other sites/pages
 
 Top level page should give a narrative overview, probably fairly short,
 of the OpenStack API and include links to OpenStack resources.
@@ -23,8 +26,16 @@ index page mockup.
 I am envisioning a top level page above this, with breadcrumbs leading to
 the API, that gives a narrative overview of the API.
 
-STRUCTURE
----------
+    .            +- the EC2 & S3 apis
+    .            |
+    .            +- the OpenStack REST apis
+    .            |
+    . top_page --+- core concepts, authN
+    .            |
+    .            +- Error Codes and Responses
+
+API PAGE STRUCTURE
+------------------
 
 The API docs page as an index lists the resources, grouped by intent
 (servers, storage, etc) - what is currently stored as separate documents.
