@@ -1,4 +1,4 @@
-/* @override
+/* @override 
 	http://openstack.dev/themes/openstack/css/main.css
 	http://localhost:8888/themes/openstack/css/main.css
 	http://staging.openstack.org/themes/openstack/css/main.css
@@ -27,7 +27,7 @@ a:hover {
 }
 
 h1, h2 {
-	  font-family: 'PT Sans', sans-serif;
+	  font-family: 'PT Sans', serif;
 	  font-style: normal;
 	  letter-spacing: -0.076em;
 	  line-height: 1em;
@@ -82,6 +82,7 @@ h2 {
 	color: #cf2f19;
 }
 
+
 /* @group Auto-clearing */
 
 #navigation:after, #navigation ul:after, #header:after {
@@ -98,7 +99,7 @@ h2 {
 * html #navigation, * html #navigation ul { height: 1% }
 #navigation, #navigation ul, #header:after { display: block }
 /* End hide from IE-mac */
-
+	
 /* @end */
 
 #logo a {
@@ -224,7 +225,7 @@ ul.tabs {
 }
 
 .tabs li a {
-  margin: 0px;
+  margin: 0px;  
   display: inline-block;
   text-align: left;
   color: #41728d;
@@ -297,7 +298,7 @@ a.button:active, input.action:active {
 	border-color: #ababab;
 	border-top-color: #636363;
 	background: -webkit-gradient(linear, left top, left bottom, from(#bebebe), to(#dddddd));
-	background: -moz-linear-gradient(top,  #bebebe,  #eeeeee);
+	background: -moz-linear-gradient(top,  #bebebe,  #eeeeee);	
 	-webkit-transition:none;
 	padding: 4px 29px 2px 31px!important;
 }
@@ -345,7 +346,7 @@ a.roundedButton:active, input.action:active {
 	border-color: #ababab;
 	border-top-color: #636363;
 	background: -webkit-gradient(linear, left top, left bottom, from(#bebebe), to(#dddddd));
-	background: -moz-linear-gradient(top,  #bebebe,  #eeeeee);
+	background: -moz-linear-gradient(top,  #bebebe,  #eeeeee);	
 	-webkit-transition:none;
 	padding: 4px 15px;
 }
@@ -366,7 +367,7 @@ a.roundedButton:active, input.action:active {
 .projectsPage h1, .communityPage h1, #blog h1 {
 	color: #264d69;
 	font-size: 24px;
-}
+} 
 
 .projectsPage h2 {
 	color: #264d69;
@@ -385,7 +386,7 @@ a.roundedButton:active, input.action:active {
 .note a {
 	color: #33730a;
 	text-decoration: underline;
-}
+} 
 
 .note p {
 	margin-left: 8px;
@@ -584,7 +585,7 @@ a.downloadLink {
 	padding: 1px;
 	padding-left: 7px;
 	padding-right: 7px;
-	-moz-border-radius: 3px;
+	-moz-border-radius: 3px; 
 	-webkit-border-radius: 3px;
 	color: #757575;
 	font-size: 0.7em;
@@ -646,7 +647,7 @@ div.termsBox {
 	height: 300px;
 	overflow: scroll;
 	margin-bottom: 10px;
-}
+} 
 
 .termsBox h3, #openstack-trademark-policy h3 {
 	font-size: 100%;
@@ -685,7 +686,7 @@ ul#quotes p {
 	line-height: 1.2em;
 	padding: 10px;
 	padding-bottom: 0px;
-}
+} 
 
 ul#quotes p.name {
 	margin-top: 10px;
@@ -774,7 +775,7 @@ a#DemoVideo {
 	color: inherit;
 	text-decoration: underline;
 }
-
+	
 p.fnote {
 	margin-left: 20px;
 }
