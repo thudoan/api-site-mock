@@ -27,7 +27,7 @@ a:hover {
 }
 
 h1, h2 {
-	  font-family: 'PT Sans', serif;
+	  font-family: 'PT Sans', sans-serif;
 	  font-style: normal;
 	  letter-spacing: -0.076em;
 	  line-height: 1em;
@@ -81,7 +81,6 @@ h2 {
 	border-bottom: 3px solid #cf2f19;
 	color: #cf2f19;
 }
-
 
 /* @group Auto-clearing */
 
