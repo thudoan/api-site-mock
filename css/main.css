@@ -27,21 +27,26 @@ a:hover {
 }
 
 h1, h2 {
-	  font-family: 'PT Sans', sans-serif;
-	  font-style: normal;
-	  letter-spacing: -0.076em;
-	  line-height: 1em;
-	  color: #264d69;
+    font-family: 'PT Sans', sans-serif;
+    font-style: normal;
+    letter-spacing: -0.076em;
+    line-height: 1em;
+    color: #264d69;
 }
 
 h1 {
-	font-size: 24px;
+    font-size: 24px;
 }
 
 h2 {
-	font-size: 18px;
+    font-size: 18px;
 }
 
+.label.verb {
+    padding: 3px 6px 4px 6px;
+    font-size: 17px;
+    background-color: #0067AB;
+}
 
 /* @group Navigation */
 

@@ -9,6 +9,7 @@
     <!-- OpenStack Specific CSS -->
     <link rel="stylesheet" href="http://www.openstack.org/themes/openstack/css/blueprint/bootstrap-screen.css" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="http://www.openstack.org/themes/openstack/css/main.css" type="text/css" media="screen, projection, print">
+    <link rel="stylesheet" href="css/main.css" type="text/css" media="screen, projection, print">
   </head>
   <body>
 <div class="container">
@@ -17,22 +18,22 @@
 			<h1 id="logo"><a href="/">Open Stack</a></h1>
 		</div>
 		<div class="span-19 last">
-			
+
 			<div id="navigation">
 				<ul id="Menu1">
-					   		  
+
 		<li><a href="/" title="Go to the Home page" class="current">Home</a></li>
-		  
+
 		<li><a href="/projects/" title="Go to the OpenStack Projects page" class="link">Projects</a></li>
-		  
+
 		<li><a href="/community/" title="Go to the Community page" class="link">Community</a></li>
-	
+
 					  <li><a href="/blog/" title="Go to the OpenStack Blog">Blog</a></li>
 				  	  <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
 				  	  <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation">Documentation</a></li>
 				</ul>
 			</div>
-			
+
 		</div>
   	</div>
 </div>
@@ -45,7 +46,7 @@
 
     <div class="row get_servers">
         <div class="span1">
-            <span class="label success">GET</span>
+            <span class="label verb">GET</span>
         </div>
         <div class="span5">
             /servers
@@ -94,7 +95,7 @@
             <div class="span12">
                 <div class="row">
                     <div class="span1">
-                        <span class="label success">GET</span>
+                        <span class="label verb">GET</span>
                     </div>
                     <div class="span10">
                         /servers?status=ACTIVE
@@ -200,7 +201,7 @@
     </div> <!-- class apidetail -->
     <div class="row get_servers_detail">
         <div class="span1">
-            <span class="label success">GET</span>
+            <span class="label verb">GET</span>
         </div>
         <div class="span5">
             /servers/detail
@@ -214,7 +215,7 @@
     </div> <!-- row -->
     <div class="row get_servers_serverid">
         <div class="span1">
-            <span class="label success">GET</span>
+            <span class="label verb">GET</span>
         </div>
         <div class="span5">
             /servers/{server_id}
