@@ -78,10 +78,10 @@ javascript.
 
 Notes:
 
-.label.verb { //(span class="label verb")
-    padding: 3px 6px 4px 6px;
-    font-size: 17px;
-    background-color: #0067AB;
-}
+    .label.verb { //(span class="label verb")
+        padding: 3px 6px 4px 6px;
+        font-size: 17px;
+        background-color: #0067AB;
+    }
 
 
