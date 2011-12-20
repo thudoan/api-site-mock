@@ -90,10 +90,10 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             list all servers in summary form
         </div>
         <div class="span1">
-            <a href="#" class="btn small info detailtoggle">detail</a>
+            <a href="#" class="btn small info" id="summary_form_btn" >detail</a>
         </div>
     </div> <!-- row -->
-    <div class="apidetail" id="get_servers">
+    <div class="apidetail span16" id="summary_form" style="display:none;">
         <div class="row">
             <div class="span16">
                 <table class="zebra-striped">
@@ -245,8 +245,15 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             list all servers with details
         </div>
         <div class="span1">
-            <a href="#" class="btn small info">detail</a>
+            <a href="#" class="btn small info" id="all_server_details_btn" >detail</a>
         </div>
+        <div class="apidetail span16" id="all_server_details" style="display:none;">
+            <p>
+            ~~~~~~~~~~~~~~<p>
+            All Sever details content needed...<p>
+            ~~~~~~~~~~~~~~
+            <p>
+        </div><!-- End div for all_server_details -->
     </div> <!-- row -->
     <div class="row get_servers_serverid">
         <div class="span1">
@@ -259,8 +266,15 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             list details of a specific server
         </div>
         <div class="span1">
-            <a href="#" class="btn small info">detail</a>
+            <a href="#" class="btn small info" id="specific_server_details_btn" >detail</a>
         </div>
+        <div class="apidetail span16" id="specific_server_details" style="display:none;" >
+            <p>
+            ~~~~~~~~~~~~~~<p>
+            Specific server details content needed...<p>
+            ~~~~~~~~~~~~~~
+            <p>
+        </div><!-- End div for specific_server_details -->
     </div> <!-- row -->
     
     <div class="row get_flavors">
@@ -274,8 +288,15 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             lists available flavors, which are combinations of disk space, memory and CPU capacity bundled together
         </div>
         <div class="span1">
-            <a href="#" class="btn small info">detail</a>
+            <a href="#" class="btn small info" id="available_flavors_btn" >detail</a>
         </div>
+        <div class="apidetail span16" id="available_flavors" style="display:none;" >
+            <p>
+            ~~~~~~~~~~~~~~<p>
+            Avaliable flavors details content needed...<p>
+            ~~~~~~~~~~~~~~
+            <p>
+        </div><!-- End div for available_flavors -->
     </div>
 	<div class="row get_specific_flavors_details">
         <div class="span1">
@@ -288,8 +309,14 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             gives additional details about the specified flavor
         </div>
         <div class="span1">
-            <a href="#" class="btn small info">detail</a>
+            <a href="#" class="btn small info" id="additional_details_btn" >detail</a>
         </div>
+        <div class="apidetail span16" id="additional_details" style="display:none;">
+            <p>
+            ~~~~~~~~~~~~~~<p>            
+            Additional Details details content needed...<p>
+            ~~~~~~~~~~~~~~<p> 
+        </div><!-- End div additional_details -->
      </div>
 
 <div class="row get_flavors_details">
@@ -303,7 +330,13 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
         	gives details on all the available flavors (instance types) 
         </div>
         <div class="span1">
-            <a href="#" class="btn small info">detail</a>
+            <a href="#" class="btn small info" id="available_flavors_details_btn" >detail</a>
+        </div>
+        <div class="apidetail span16" id="available_flavors_details" style="display:none;">
+            <p>
+            ~~~~~~~~~~~~~~<p>         
+            Avaliable flavors details details content needed...<p>
+            ~~~~~~~~~~~~~~<p>
         </div>
     </div>
 </div>
@@ -323,12 +356,17 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
                </p>
 
             </div>
-            <div class="span1"><a href="#" class="btn small info detailtoggle">detail</a></div>
+            <div class="span1"><a href="#" class="btn small info" id="supported_extensions_btn">detail</a></div>
          </div>
-         <div class="apidetail" id="d1e267">
+         <div class="apidetail span16" id="supported_extensions" style="display:none;" >
             <div class="row"></div>
             <div class="row">
-               <div class="span16"></div>
+               <div class="span16">
+               <p>
+            ~~~~~~~~~~~~~~<p>         
+            Supported Extensions details content needed...<p>
+            ~~~~~~~~~~~~~~<p>
+               </div>
             </div>
 
             
@@ -362,7 +400,7 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             
             
             
-         </div>
+         </div><!--End div supported_extensions -->
          <h3>Tokens</h3>
          <div class="row d1e425">
             <div class="span1"><span class="label success">POST</span></div>
@@ -374,9 +412,9 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
                   
                </p>
             </div>
-            <div class="span1"><a href="#" class="btn small info detailtoggle">detail</a></div>
+            <div class="span1"><a href="#" class="btn small info" id="generate_token_btn">detail</a></div>
          </div>
-         <div class="apidetail" id="d1e425">
+         <div class="apidetail span16" id="generate_token" style="display:none;">
             <div class="row">
                <p xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                   	      This call will return a token if successful. Each ReST request 
@@ -678,7 +716,7 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             
             
             
-         </div>
+         </div><!-- End div generate_token -->
          <h3>Users</h3>
          <div class="row d1e960">
             <div class="span1"><span class="label success">GET</span></div>
@@ -690,9 +728,9 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
                   
                </p>
             </div>
-            <div class="span1"><a href="#" class="btn small info detailtoggle">detail</a></div>
+            <div class="span1"><a href="#" class="btn small info" id="users_btn">detail</a></div>
          </div>
-         <div class="apidetail" id="d1e960">
+         <div class="apidetail span16" id="users" style="display:none;" >
             <div class="row"></div>
             <div class="row">
 
@@ -799,7 +837,7 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             
             
             
-         </div>
+         </div><!--End div users -->
          <h3>Tenants</h3>
          <div class="row d1e1305">
             <div class="span1"><span class="label success">GET</span></div>
@@ -811,9 +849,9 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
                   
                </p>
             </div>
-            <div class="span1"><a href="#" class="btn small info detailtoggle">detail</a></div>
+            <div class="span1"><a href="#" class="btn small info" id="tenants_btn" >detail</a></div>
          </div>
-         <div class="apidetail" id="d1e1305">
+         <div class="apidetail span16" id="tenants" style="display:none;" >
             <div class="row">
 
                <p xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -931,9 +969,9 @@ Date: Sun, 1 Jan 2011 9:00:00 GMT
                </p>
 
             </div>
-            <div class="span1"><a href="#" class="btn small info detailtoggle">detail</a></div>
+            <div class="span1"><a href="#" class="btn small info" id="v2_tenants_btn">detail</a></div>
          </div>
-         <div class="apidetail" id="d1e1423">
+         <div class="apidetail span16" id="v2_tenants" style="display:none;">
             <div class="row"></div>
             <div class="row">
                <div class="span16">
@@ -990,7 +1028,7 @@ Date: Sun, 1 Jan 2011 9:00:00 GMT
             
             
             
-            <div class="example">
+            <div class="example" id="get_tenants_by_name">
                <b>Get tenants by name Response: XML</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;tenant xmlns="http://docs.openstack.org/identity/api/v2.0"
@@ -1026,20 +1064,62 @@ Date: Sun, 1 Jan 2011 9:00:00 GMT
               <p>The OpenStack project is provided under the Apache 2.0 license.</p>
           </div>
       </div>
+      </div><!-- End div v2_tenants -->
+
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
       <script type="text/javascript"> charset="utf-8">
           //<![CDATA[
       $(document).ready(function() {
-              function toggledetail(){
-                  $(".apidetail").toggle()
+              
+              function toggledetail(event, btnId, focusId){
+                  $('#'+btnId).toggle();
+                  event.preventDefault();
+
+                  if($('#'+focusId+':visible').length>0){
+                      $('#'+focusId).focus();
+                  }
               }
-              $(".detailtoggle").click(function(){
-                  toggledetail();
-              })
+                            
+              $("#summary_form_btn").click(function(event){
+                  toggledetail(event,'summary_form','summary_form');
+              });
+              
+              $("#all_server_details_btn").click(function(event){
+                  toggledetail(event,'all_server_details','all_server_details');
+              });
+              $("#specific_server_details_btn").click(function(event){
+                  toggledetail(event,'specific_server_details','specific_server_details');
+              });  
+              $("#available_flavors_btn").click(function(event){
+                  toggledetail(event,'available_flavors','available_flavors');
+              }); 
+              $("#additional_details_btn").click(function(event){
+                  toggledetail(event,'additional_details','additional_details');
+              });                 
+              $("#available_flavors_details_btn").click(function(event){
+                  toggledetail(event,'available_flavors_details','available_flavors_details');
+              });                            
+              $("#supported_extensions_btn").click(function(event){
+                  toggledetail(event,'supported_extensions','supported_extensions');
+              });    
+              $("#generate_token_btn").click(function(event){
+                  toggledetail(event,'generate_token','generate_token');
+              });               
+              $("#users_btn").click(function(event){
+                  toggledetail(event,'users','users');
+              }); 
+              $("#tenants_btn").click(function(event){
+                  toggledetail(event,'tenants','tenants');
+              });                                         
+              $("#v2_tenants_btn").click(function(event){
+                  toggledetail(event,'v2_tenants','thebottom');
+              });                           
       });
 
           //]]>
       </script>
+        <div id="thebottom">&nbsp;<p>&nbsp;<p></div>     
   </body>
 </html>
+
 
