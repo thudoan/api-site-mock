@@ -9,6 +9,8 @@
     <!-- OpenStack Specific CSS -->
     <link rel="stylesheet" href="css/bootstrap-screen.css" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="css/main.css" type="text/css" media="screen, projection, print">
+  
+  
   </head>
   <body>
 <div class="container">
@@ -447,9 +449,17 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
                <div class="span16"></div>
             </div>
             
+
+     <form action="">
+         <select id="auth_user_name_req_select" >
+             <option value="xml" selected="selected">Request:XML</option>
+             <option value="json">Request:JSON</option>
+         </select>
+     </form>  
+
             
             
-            <div class="example">
+            <div class="example" id="auth_user_name_req_xml" style="display:block">
                <b>Authentication with Username Request: XML</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;auth xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -460,8 +470,32 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
 &lt;/auth&gt;
 </programlisting></pre>
                </div>
+
+
+            <div class="example" id="auth_user_name_req_json" style="display:none">
+
+               <b>Authentication with Token Request: JSON</b>
+               <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="javascript">{
+    "auth": {
+        "tenantName": "customer-x",
+        "token": {
+            "id": "abcdefghijk"
+        }
+    }
+}</programlisting></pre>
+               </div>
             
-            <div class="example">
+            
+     <form action="">
+         <select id="auth_token_req_select" >
+             <option value="xml" selected="selected">Request:XML</option>
+             <option value="json">Request:JSON</option>
+         </select>
+     </form>    
+
+
+            
+            <div class="example" id="auth_token_req_xml" style="display:block">
                <b>Authentication with Token Request: XML</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;auth xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -478,7 +512,7 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             
             
             
-            <div class="example">
+            <div class="example" id="auth_token_req_json" style="display:none">
                <b>Authentication with Username Request: JSON</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="javascript">{
     "auth":{
@@ -491,25 +525,16 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
 }</programlisting></pre>
                </div>
             
-            <div class="example">
 
-               <b>Authentication with Token Request: JSON</b>
-               <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="javascript">{
-    "auth": {
-        "tenantName": "customer-x",
-        "token": {
-            "id": "abcdefghijk"
-        }
-    }
-}</programlisting></pre>
-               </div>
+     <form action="">
+         <select id="auth_resp_select" >
+             <option value="xml" selected="selected">Response:XML</option>
+             <option value="json">Response:JSON</option>
+         </select>
+     </form>  
+           
             
-            
-            
-            
-            
-            
-            <div class="example">
+            <div class="example" id="auth_resp_xml" style="display:block">
                <b>Authentication Response: XML</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;access xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -594,7 +619,7 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             
             
             
-            <div class="example">
+            <div class="example" id="auth_resp_json" style="display:none">
                <b>Authentication Response: JSON</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="javascript">{
     "access":{
@@ -779,12 +804,18 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
                </div>
             </div>
 
+ 
+            
+     <form action="">
+         <select id="user_by_name_select" >
+             <option value="xml" selected="selected">Response:XML</option>
+             <option value="json">Response:JSON</option>
+         </select>
+     </form>            
             
             
             
-            
-            
-            <div class="example">
+            <div class="example" id="user_by_name_xml" style="display:block">
                <b>Get a User by Name Response: XML</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;user xmlns="http://docs.openstack.org/identity/api/v2.0"
@@ -797,7 +828,7 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             
             
             
-            <div class="example">
+            <div class="example" id="user_by_name_json" style="display:none">
                <b>Get a User by Name Response: JSON</b>
 
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="javascript">{
@@ -911,9 +942,14 @@ Accept: application/json</programlisting></pre>
                </div>
             </div>
             
-            
-            
-            <div class="example">
+     <p>
+     <form action="">
+         <select id="get_list_tenants_select" >
+             <option value="xml" selected="selected">Response:XML</option>
+             <option value="json">Response:JSON</option>
+         </select>
+     </form>           
+            <div class="example" id="get_list_tenants_xml" style="display:block">
                <b>Get Tenants Response: XML</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="xml">HTTP/1.1 200 OK
 Content-Type: application/xml; charset=UTF-8
@@ -938,7 +974,7 @@ Date: Sun, 1 Jan 2011 9:00:00 GMT
             
             
             
-            <div class="example">
+            <div class="example" id="get_list_tenants_json" style="display:none">
                <b>Get Tenants Response: JSON</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="javascript">{
     "tenants":[{
@@ -1025,10 +1061,15 @@ Date: Sun, 1 Jan 2011 9:00:00 GMT
 
             
             
+     <form action="">
+         <select id="get_tenants_by_name_select" >
+             <option value="xml" selected="selected">Response:XML</option>
+             <option value="json">Response:JSON</option>
+         </select>
+     </form>             
             
             
-            
-            <div class="example" id="get_tenants_by_name">
+            <div class="example" id="get_tenants_by_name_xml" style="display:block">
                <b>Get tenants by name Response: XML</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;tenant xmlns="http://docs.openstack.org/identity/api/v2.0"
@@ -1043,7 +1084,7 @@ Date: Sun, 1 Jan 2011 9:00:00 GMT
             
             
             
-            <div class="example">
+            <div class="example" id="get_tenants_by_name_json" style="display:none">
                <b>Get tenants by name Response: JSON</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="javascript">{
   "tenant": {
@@ -1113,7 +1154,104 @@ Date: Sun, 1 Jan 2011 9:00:00 GMT
               });                                         
               $("#v2_tenants_btn").click(function(event){
                   toggledetail(event,'v2_tenants','thebottom');
-              });                           
+              });    
+           
+           
+              function showSelected(selectorId, optionId){
+                  if(selectorId=='get_list_tenants_select'){
+                      if(optionId=='xml'){
+                          $("#get_list_tenants_json").hide();
+                          $("#get_list_tenants_xml").show();
+                      }
+                      else{
+                           $("#get_list_tenants_xml").hide();
+                           $("#get_list_tenants_json").show();                     
+                      }
+                  }
+                  else if(selectorId=='get_tenants_by_name_select'){
+                      if(optionId=='xml'){
+                          $("#get_tenants_by_name_json").hide();
+                          $("#get_tenants_by_name_xml").show();
+                      }
+                      else{
+                           $("#get_tenants_by_name_xml").hide();
+                           $("#get_tenants_by_name_json").show();                     
+                      }                  
+                  }
+                  else if(selectorId=='user_by_name_select'){
+                      if(optionId=='xml'){
+                          $("#user_by_name_json").hide();
+                          $("#user_by_name_xml").show();
+                      }
+                      else{
+                           $("#user_by_name_xml").hide();
+                           $("#user_by_name_json").show();                     
+                      }                  
+                  }    
+                  else if(selectorId=='auth_user_name_req_select'){
+                      if(optionId=='xml'){
+                          $("#auth_user_name_req_json").hide();
+                          $("#auth_user_name_req_xml").show();
+                      }
+                      else{
+                           $("#auth_user_name_req_xml").hide();
+                           $("#auth_user_name_req_json").show();                     
+                      }                   
+                  }              
+                  else if(selectorId=='auth_token_req_select'){
+                      if(optionId=='xml'){
+                          $("#auth_token_req_json").hide();
+                          $("#auth_token_req_xml").show();
+                      }
+                      else{
+                          $("#auth_token_req_xml").hide();
+                          $("#auth_token_req_json").show();                      
+                      }
+                  }  
+                  else if(selectorId=='auth_resp_select'){
+                      if(optionId=='xml'){
+                          $("#auth_resp_json").hide();
+                          $("#auth_resp_xml").show();
+                      }
+                      else{
+                          $("#auth_resp_xml").hide();
+                          $("#auth_resp_json").show();
+                      }
+                  }       
+                  
+              }              
+              
+              $("#get_list_tenants_select").change(function(){                                   
+                  var optionId =  $("#get_list_tenants_select :selected").val();
+                  showSelected('get_list_tenants_select',optionId);
+               });
+
+              $("#get_tenants_by_name_select").change(function(){              
+                  var optionId =  $("#get_tenants_by_name_select :selected").val();
+                  showSelected('get_tenants_by_name_select',optionId);              
+              });
+              
+              $("#user_by_name_select").change(function(){              
+                  var optionId =  $("#user_by_name_select :selected").val();
+                  showSelected('user_by_name_select',optionId);              
+              });
+              
+              
+              $("#auth_user_name_req_select").change(function(){              
+                  var optionId =  $("#auth_user_name_req_select :selected").val();
+                  showSelected('auth_user_name_req_select',optionId);              
+              });
+              
+              $("#auth_token_req_select").change(function(){              
+                  var optionId =  $("#auth_token_req_select :selected").val();
+                  showSelected('auth_token_req_select',optionId);              
+              });  
+              
+                         
+              $("#auth_resp_select").change(function(){              
+                  var optionId =  $("#auth_resp_select :selected").val();
+                  showSelected('auth_resp_select',optionId);              
+              });                                     
       });
 
           //]]>
