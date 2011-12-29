@@ -4,6 +4,55 @@
 	http://staging.openstack.org/themes/openstack/css/main.css
 */
 
+#byline {
+ font-size: 0.8em;
+ color: #666;
+ font-style: italic;
+ margin-bottom: 1.5em;
+}
+
+#wrapper {
+  width: 60em;
+  margin: auto;
+}
+
+.clear {
+ clear:both;
+}
+
+#searchOnThisPageTextBox {
+ font-style: italic;
+ color: #999;
+}
+
+#searchOnThisPageTextBox.active {
+ font-style:normal;
+ color: #000;
+}
+
+#body {
+ width: 45em;
+ float:left;
+}
+
+#rightColumn {
+    float:right;
+    position: relative;
+    width: 10em;
+}
+#searchOnThisPage{
+    float:right;
+    position: relative;
+
+    width: 10em;
+    font-family:arial, helvetica, sans-serif;
+    letter-spacing: -0.03em;
+}
+
+.highlight {
+    background-color: #FFAA66;
+}
+
 html { overflow-y: scroll; }
 
 body {

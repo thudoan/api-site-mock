@@ -1,18 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>OpenStack API Documentation</title>
+<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+<!-- OpenStack Specific CSS -->
+<link rel="stylesheet" href="css/bootstrap-screen.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="css/main.css" type="text/css" media="screen, projection, print">
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.min.js"></script>
 
-<html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>OpenStack API Documentation</title>
-    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
-    <!-- OpenStack Specific CSS -->
-    <link rel="stylesheet" href="css/bootstrap-screen.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="css/main.css" type="text/css" media="screen, projection, print">
-  
-  
-  </head>
-  <body>
+
+</head>
+
+<body>
+<form action="#">
+<div id="wrapper">
 <div class="container">
 	<div id="header">
 		<div class="span-5">
@@ -37,8 +40,12 @@
 		</div>
   	</div>
 </div>
+<div id="body">
+
 
 <div class="container">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
     <h2>OpenStack REST API Reference</h2>
     <p>The OpenStack system has several key projects that are separate installations but can work
     together depending on your cloud needs: OpenStack Compute, OpenStack Object Storage,
@@ -47,34 +54,9 @@
     <p>This page covers the basics for working with your OpenStack cloud through the Compute API and Image API
         after authorizing with the Identity Service API. You can then build a cloud by launching
         images and assigning metadata to instances, all through an API. Refer to the <a href="http://docs.openstack.org/api/">API Quick Start Guide</a> for details about using the APIs referenced here, and go to <a href="docs.openstack.org/api">docs.openstack.org/api</a> for specifications of each API. </p>
-    
-<!--        
-            <div class="section" title="Authentication"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Authentication-a00665"></a>Authentication</h2></div></div></div><p>Credentials are a combination of your username, password, and what tenant (or project) your
-            cloud is running under. You only need to generate an additional token if you are
-            interacting with your cloud directly with API endpoints, and not with a client. Your
-            cloud administrator can give you a username and a password as well as your tenant
-            identifier so you can generate authorization tokens. These tokens are typically good for
-            24 hours, and when the token expires, you will find out with a 401 (Unauthorized) error
-            and can request another token programmatically.  </p><p>For a typical OpenStack deployment running the Identity Service you can request a token
-                with this command in
-                cURL:</p><pre class="programlisting">
-$ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCredentials":{"username": "joecool", "password":"coolword"}, "tenantId":"5"}}' -H 'Content-type: application/json' 
-         </pre><div class="section" title="Sending Requests to the API"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Sending-Requests-to-API-a09879"></a>Sending Requests to the API</h2></div></div></div><p>You have a couple of options for sending requests to OpenStack through an API.
-        Developers and testers may prefer to use cURL, the command-line tool from <a class="link" href="http://curl.haxx.se/" target="_top">http://curl.haxx.se/</a>. With cURL you can
-        send HTTP requests and receive responses back from the command line. </p><p>If you like to use a more graphical interface, the REST client for Firefox also works
-            well for testing and trying out commands, see <a class="link" href="https://addons.mozilla.org/en-US/firefox/addon/restclient/" target="_top">https://addons.mozilla.org/en-US/firefox/addon/restclient/</a>. You can also
-            download and install rest-client, a Java application to test RESTful web services, from
-            <a class="link" href="http://code.google.com/p/rest-client/" target="_top">http://code.google.com/p/rest-client/</a>. </p><p>You need to generate a token as shown above if you use cURL or a REST client. </p></div></div>
-    <p>In the "service catalog" that is returned when you get a token, you can find the endpoint URLs that you use for these API commands. For example this public URL entry in the service catalog offers the URL for the Image Service, code-named glance: 
-    "publicURL": "http://55.51.11.198:9292/v1.1/9"}], "type": "image", "name": "glance"
-    For the Compute API, you see a service of type compute, code-named "nova" such as: 
-    "publicURL": "http://55.51.11.198:8774/v1.1/9"}], "type": "compute", "name": "nova"
-    With these publicURLs in hand, you can now use curl commands for these endpoints and send API requests. </p>
-    </div>
-    </div>
+</div>
 
-    
-</div> -->
+
 <div class="container">
 
     <h2>Compute</h2>
@@ -92,10 +74,13 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             list all servers in summary form
         </div>
         <div class="span1">
-            <a href="#" class="btn small info" id="summary_form_btn" >detail</a>
+            <a href="#" class="btn small info" id="summary_form_btn" onclick="toggleDetailsBtn(event,'summary_form_btn','summary_form','summary_form_focus');">detail</a>            
         </div>
     </div> <!-- row -->
-    <div class="apidetail span16" id="summary_form" style="display:none;">
+    <!--Do not edit or remove the next comment-->
+    <!--summary_form_btn_section START-->
+    <span id="summary_form_btn_section" >
+    <div class="apidetail span16" id="summary_form">
         <div class="row">
             <div class="span16">
                 <table class="zebra-striped">
@@ -109,7 +94,7 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
                         </tr>
                         <tr>
                             <td>flavor (optional)</td>
-                            <td>description of parameter</td>
+                            <td id="summary_form_focus">description of parameter</td>
                         </tr>
                         <tr>
                             <td>name (optional)</td>
@@ -235,6 +220,10 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
                 </pre>
             </div>
         </div>
+        </span>
+        <!--summary_form_btn_section END-->
+        <!--do not delete or edit the previous comment-->
+
     </div> <!-- class apidetail -->
     <div class="row get_servers_detail">
         <div class="span1">
@@ -247,15 +236,27 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             list all servers with details
         </div>
         <div class="span1">
-            <a href="#" class="btn small info" id="all_server_details_btn" >detail</a>
+            <a href="#" class="btn small info" id="all_server_details_btn" onclick="toggleDetailsBtn(event,'all_server_details_btn','all_server_details','all_server_details_focus');" >detail</a>
         </div>
-        <div class="apidetail span16" id="all_server_details" style="display:none;">
+        <!-- 
+            The span id below: all_server_details_section, is used to check to see if there is  
+            highlighted text
+        -->
+
+        <div class="apidetail span16" id="all_server_details" >
+        <!-- Do not delete or edit the next comment -->
+        <!--all_server_details_section START-->
+        <span id="all_server_details_section" >        
             <p>
             ~~~~~~~~~~~~~~<p>
+            <span id="all_server_details_focus"></span>
             All Sever details content needed...<p>
             ~~~~~~~~~~~~~~
             <p>
-        </div><!-- End div for all_server_details -->
+        </span>
+        <!--all_server_details_section END-->
+        <!-- Do not delete or edit the previous comment -->
+        </div><!-- End div for all_server_details -->        
     </div> <!-- row -->
     <div class="row get_servers_serverid">
         <div class="span1">
@@ -268,14 +269,19 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             list details of a specific server
         </div>
         <div class="span1">
-            <a href="#" class="btn small info" id="specific_server_details_btn" >detail</a>
+            <a href="#" class="btn small info" id="specific_server_details_btn" onclick="toggleDetailsBtn(event,'specific_server_details_btn','specific_server_details','specific_server_details_focus');">detail</a>
         </div>
-        <div class="apidetail span16" id="specific_server_details" style="display:none;" >
+        <div class="apidetail span16" id="specific_server_details" >
+        <!-- Do not delete or edit the next comment -->
+        <!--specific_server_details_section START-->
             <p>
             ~~~~~~~~~~~~~~<p>
+            <div id="specific_server_details_focus"></div>
             Specific server details content needed...<p>
             ~~~~~~~~~~~~~~
             <p>
+        <!--specific_server_details_section END-->            
+        <!-- Do not delete or edit the previous comment -->
         </div><!-- End div for specific_server_details -->
     </div> <!-- row -->
     
@@ -290,14 +296,18 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             lists available flavors, which are combinations of disk space, memory and CPU capacity bundled together
         </div>
         <div class="span1">
-            <a href="#" class="btn small info" id="available_flavors_btn" >detail</a>
+            <a href="#" class="btn small info" id="available_flavors_btn" onclick="toggleDetailsBtn(event,'available_flavors_btn','available_flavors','available_flavors_focus');">detail</a>
         </div>
-        <div class="apidetail span16" id="available_flavors" style="display:none;" >
+        <div class="apidetail span16" id="available_flavors" >
+        <!-- Do not delete or edit the next comment -->
+        <!--available_flavors_section START-->
             <p>
             ~~~~~~~~~~~~~~<p>
             Avaliable flavors details content needed...<p>
             ~~~~~~~~~~~~~~
             <p>
+        <!--available_flavors_section END-->            
+        <!-- Do not delete or edit the previous comment -->            
         </div><!-- End div for available_flavors -->
     </div>
 	<div class="row get_specific_flavors_details">
@@ -311,13 +321,18 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
             gives additional details about the specified flavor
         </div>
         <div class="span1">
-            <a href="#" class="btn small info" id="additional_details_btn" >detail</a>
+            <a href="#" class="btn small info" id="additional_details_btn" onclick="toggleDetailsBtn(event,'additional_details_btn','additional_details','additional_details_focus');" >detail</a>
         </div>
-        <div class="apidetail span16" id="additional_details" style="display:none;">
+        <div class="apidetail span16" id="additional_details" >
+        <!-- Do not delete or edit the next comment -->
+        <!--additional_details_section START-->
             <p>
             ~~~~~~~~~~~~~~<p>            
             Additional Details details content needed...<p>
             ~~~~~~~~~~~~~~<p> 
+            
+        <!-- Do not delete or edit the next comment -->
+        <!--additional_details_section END-->            
         </div><!-- End div additional_details -->
      </div>
 
@@ -332,16 +347,20 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
         	gives details on all the available flavors (instance types) 
         </div>
         <div class="span1">
-            <a href="#" class="btn small info" id="available_flavors_details_btn" >detail</a>
+            <a href="#" class="btn small info" id="available_flavors_details_btn" onclick="toggleDetailsBtn(event,'available_flavors_details_btn','available_flavors_details','available_flavors_details');" >detail</a>
         </div>
-        <div class="apidetail span16" id="available_flavors_details" style="display:none;">
+        <div class="apidetail span16" id="available_flavors_details">
+        <!-- Do not delete or edit the next comment -->
+        <!--available_flavors_details_section START-->
             <p>
             ~~~~~~~~~~~~~~<p>         
             Avaliable flavors details details content needed...<p>
             ~~~~~~~~~~~~~~<p>
+        <!-- Do not delete or edit the next comment -->
+        <!--available_flavors_details_section END-->            
         </div>
-    </div>
-</div>
+    </div>    
+
 
 <div class="container">
          <h2>Identity</h2>
@@ -358,51 +377,26 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
                </p>
 
             </div>
-            <div class="span1"><a href="#" class="btn small info" id="supported_extensions_btn">detail</a></div>
+            <div class="span1"><a href="#" class="btn small info" id="supported_extensions_btn" onclick="toggleDetailsBtn(event,'supported_extensions_btn','supported_extensions','supported_extensions_focus');">detail</a></div>
          </div>
-         <div class="apidetail span16" id="supported_extensions" style="display:none;" >
+         <div class="apidetail span16" id="supported_extensions" >
             <div class="row"></div>
             <div class="row">
                <div class="span16">
+        <!-- Do not delete or edit the next comment -->
+        <!--supported_extensions_section START-->
                <p>
-            ~~~~~~~~~~~~~~<p>         
+            ~~~~~~~~~~~~~~<p>
+            <div id="supported_extensions_focus"></div>         
             Supported Extensions details content needed...<p>
             ~~~~~~~~~~~~~~<p>
+        <!-- Do not delete or edit the next comment -->
+        <!--supported_extensions_section END-->            
                </div>
             </div>
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+      
          </div><!--End div supported_extensions -->
+
          <h3>Tokens</h3>
          <div class="row d1e425">
             <div class="span1"><span class="label success">POST</span></div>
@@ -414,12 +408,15 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
                   
                </p>
             </div>
-            <div class="span1"><a href="#" class="btn small info" id="generate_token_btn">detail</a></div>
+            <div class="span1"><a href="#" class="btn small info" id="generate_token_btn" onclick="toggleDetailsBtn(event,'generate_token_btn','generate_token','generate_token_focus');">detail</a></div>
          </div>
-         <div class="apidetail span16" id="generate_token" style="display:none;">
+         <div class="apidetail span16" id="generate_token" >
+        <!-- Do not delete or edit the next comment -->         
+         <!--generate_token_section START-->
             <div class="row">
                <p xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  	      This call will return a token if successful. Each ReST request 
+                   <span id="generate_token_focus">	      
+                  	      This call will return a token if successful. Each REST request 
                   requires the inclusion of a specific authorization token HTTP x-header, defined as
                   <code>X-Auth-Token</code>.
                   The token must be supplied for calls
@@ -428,7 +425,7 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
                   	      Clients obtain
                   <code>X-Auth-Token</code> and the URLs to other service APIs by supplying their valid credentials 
                   to the authentication service. 
-                  	       
+                   </span>   	       
                </p>
 
                <p xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -449,17 +446,15 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
                <div class="span16"></div>
             </div>
             
-
-     <form action="">
-         <select id="auth_user_name_req_select" >
+ 
+         <select id="auth_user_name_req_select" onchange="toggleSelection('auth_user_name_req_select');" >
              <option value="xml" selected="selected">Request:XML</option>
-             <option value="json">Request:JSON</option>
+             <option value="json" >Request:JSON</option>
          </select>
-     </form>  
-
             
-            
-            <div class="example" id="auth_user_name_req_xml" style="display:block">
+            <!-- Do not delete or edit the next comment -->         
+            <!--auth_user_name_req_xml_selection START-->            
+            <div class="example" id="auth_user_name_req_xml" >
                <b>Authentication with Username Request: XML</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;auth xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -470,9 +465,12 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
 &lt;/auth&gt;
 </programlisting></pre>
                </div>
+            <!-- Do not delete or edit the next comment -->         
+            <!--auth_user_name_req_xml_selection END-->
 
-
-            <div class="example" id="auth_user_name_req_json" style="display:none">
+            <!-- Do not delete or edit the next comment -->         
+            <!--auth_user_name_req_json_selection START-->
+            <div class="example" id="auth_user_name_req_json" >
 
                <b>Authentication with Token Request: JSON</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="javascript">{
@@ -484,18 +482,17 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
     }
 }</programlisting></pre>
                </div>
-            
-            
-     <form action="">
-         <select id="auth_token_req_select" >
+            <!-- Do not delete or edit the next comment -->         
+            <!--auth_user_name_req_json_selection END-->
+                        
+         <select id="auth_token_req_select" onchange="toggleSelection('auth_token_req_select');">
              <option value="xml" selected="selected">Request:XML</option>
              <option value="json">Request:JSON</option>
          </select>
-     </form>    
 
-
-            
-            <div class="example" id="auth_token_req_xml" style="display:block">
+            <!-- Do not delete or edit the next comment -->         
+            <!--auth_token_req_xml_selection START-->            
+            <div class="example" id="auth_token_req_xml">
                <b>Authentication with Token Request: XML</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;auth xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -507,12 +504,14 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
 
 </programlisting></pre>
                </div>
+            <!-- Do not delete or edit the next comment -->         
+            <!--auth_token_req_xml_selection END-->            
             
             
             
-            
-            
-            <div class="example" id="auth_token_req_json" style="display:none">
+            <!-- Do not delete or edit the next comment -->         
+            <!--auth_token_req_json_selection START-->            
+            <div class="example" id="auth_token_req_json" >
                <b>Authentication with Username Request: JSON</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="javascript">{
     "auth":{
@@ -524,17 +523,18 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
     }
 }</programlisting></pre>
                </div>
-            
+            <!-- Do not delete or edit the next comment -->         
+            <!--auth_token_req_json_selection END-->
 
-     <form action="">
-         <select id="auth_resp_select" >
+         <select id="auth_resp_select" onchange="toggleSelection('auth_resp_select');" >
              <option value="xml" selected="selected">Response:XML</option>
              <option value="json">Response:JSON</option>
          </select>
-     </form>  
            
-            
-            <div class="example" id="auth_resp_xml" style="display:block">
+
+            <!-- Do not delete or edit the next comment -->         
+            <!--auth_resp_xml_selection START-->            
+            <div class="example" id="auth_resp_xml">
                <b>Authentication Response: XML</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;access xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -614,12 +614,13 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
 &lt;/access&gt;
 </programlisting></pre>
                </div>
+            <!-- Do not delete or edit the next comment -->         
+            <!--auth_resp_xml_selection END-->            
             
-            
-            
-            
-            
-            <div class="example" id="auth_resp_json" style="display:none">
+
+            <!-- Do not delete or edit the next comment -->         
+            <!--auth_resp_json_selection START-->            
+            <div class="example" id="auth_resp_json">
                <b>Authentication Response: JSON</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="javascript">{
     "access":{
@@ -711,37 +712,13 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
 
 </programlisting></pre>
                </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-         </div><!-- End div generate_token -->
+            <!-- Do not delete or edit the next comment -->         
+            <!--auth_resp_json_selection END-->
+                           
+</div><!-- End div generate_token -->
+         <!-- Do not delete or edit the next comment -->         
+         <!--generate_token_section END-->
+         
          <h3>Users</h3>
          <div class="row d1e960">
             <div class="span1"><span class="label success">GET</span></div>
@@ -753,13 +730,13 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
                   
                </p>
             </div>
-            <div class="span1"><a href="#" class="btn small info" id="users_btn">detail</a></div>
+            <div class="span1"><a href="#" class="btn small info" id="users_btn" onclick="toggleDetailsBtn(event,'users_btn','users','users_focus');" >detail</a></div>
          </div>
-         <div class="apidetail span16" id="users" style="display:none;" >
+         <div class="apidetail span16" id="users" >
             <div class="row"></div>
             <div class="row">
 
-               <div class="span16">
+               <div class="span16" id="users_focus">
                   <table class="zebra-striped"><?dbfo keep-together="always"?>
                      <caption>Get a User by Name Request Parameters</caption>
                      <col width="20%" />
@@ -804,31 +781,28 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
                </div>
             </div>
 
- 
-            
-     <form action="">
-         <select id="user_by_name_select" >
-             <option value="xml" selected="selected">Response:XML</option>
-             <option value="json">Response:JSON</option>
+
+         <select id="user_by_name_select" onchange="toggleSelection('user_by_name_select');">
+             <option value="xml" selected="selected" >Response:XML</option>
+             <option value="json" >Response:JSON</option>
          </select>
-     </form>            
             
-            
-            
-            <div class="example" id="user_by_name_xml" style="display:block">
+            <div class="example" id="user_by_name_xml" >
+            <!-- Do not delete or edit the next comment -->
+            <!--user_by_name_xml_selection START-->            
                <b>Get a User by Name Response: XML</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;user xmlns="http://docs.openstack.org/identity/api/v2.0"
       enabled="true" email="john.smith@example.org"
       username="jqsmith" id="u1000"/&gt;
 </programlisting></pre>
-               </div>
-            
-            
-            
-            
-            
-            <div class="example" id="user_by_name_json" style="display:none">
+            <!-- Do not delete or edit the next comment -->
+            <!--user_by_name_xml_selection END-->          
+               </div>    
+             
+            <div class="example" id="user_by_name_json" >
+            <!-- Do not delete or edit the next comment -->
+            <!--user_by_name_json_selection START-->            
                <b>Get a User by Name Response: JSON</b>
 
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="javascript">{
@@ -840,35 +814,12 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
   }
 }
 </programlisting></pre>
+            <!-- Do not delete or edit the next comment -->
+            <!--user_by_name_json_selection END-->
                </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-         </div><!--End div users -->
+               </div><!--End div users -->        
+
+
          <h3>Tenants</h3>
          <div class="row d1e1305">
             <div class="span1"><span class="label success">GET</span></div>
@@ -880,17 +831,18 @@ $ curl -X 'POST' -v http://host.na.me:5000/v2.0/tokens -d '{"auth":{"passwordCre
                   
                </p>
             </div>
-            <div class="span1"><a href="#" class="btn small info" id="tenants_btn" >detail</a></div>
+            <div class="span1"><a href="#" class="btn small info" id="tenants_btn" onclick="toggleDetailsBtn(event,'tenants_btn','tenants','tenants_focus');" >detail</a></div>
          </div>
-         <div class="apidetail span16" id="tenants" style="display:none;" >
+         <div class="apidetail span16" id="tenants" >
             <div class="row">
 
                <p xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               <span id="tenants_focus">
                   	      This call must be authenticated, so a valid <code>X-Auth-Token</code> must
                   	      be passed in as a header. 
                   	      The operation returns a list of tenants for which the supplied token provides
                   	      access.
-                  
+               </span>    
                </p>
                <div class="example">
                   <b>Get Tenants Request with X-Auth-Token</b>
@@ -943,13 +895,15 @@ Accept: application/json</programlisting></pre>
             </div>
             
      <p>
-     <form action="">
-         <select id="get_list_tenants_select" >
+
+         <select id="get_list_tenants_select" onchange="toggleSelection('get_list_tenants_select')" >
              <option value="xml" selected="selected">Response:XML</option>
              <option value="json">Response:JSON</option>
          </select>
-     </form>           
-            <div class="example" id="get_list_tenants_xml" style="display:block">
+         
+            <div class="example" id="get_list_tenants_xml">
+            <!-- Do not delete or edit the next comment -->
+            <!--get_list_tenants_xml_selection START-->            
                <b>Get Tenants Response: XML</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="xml">HTTP/1.1 200 OK
 Content-Type: application/xml; charset=UTF-8
@@ -968,13 +922,17 @@ Date: Sun, 1 Jan 2011 9:00:00 GMT
     &lt;/tenant&gt;
 &lt;/tenants&gt;
 </programlisting></pre>
+            <!-- Do not delete or edit the next comment -->
+            <!--get_list_tenants_xml_selection END--> 
                </div>
             
             
             
             
             
-            <div class="example" id="get_list_tenants_json" style="display:none">
+            <div class="example" id="get_list_tenants_json" >
+            <!-- Do not delete or edit the next comment -->
+            <!--get_list_tenants_json_selection START-->             
                <b>Get Tenants Response: JSON</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="javascript">{
     "tenants":[{
@@ -992,6 +950,8 @@ Date: Sun, 1 Jan 2011 9:00:00 GMT
     ],
     "tenants_links":[]
 }</programlisting></pre>
+            <!-- Do not delete or edit the next comment -->
+            <!--get_list_tenants_json_selection END-->
                </div>
 
          </div>
@@ -1005,12 +965,12 @@ Date: Sun, 1 Jan 2011 9:00:00 GMT
                </p>
 
             </div>
-            <div class="span1"><a href="#" class="btn small info" id="v2_tenants_btn">detail</a></div>
+            <div class="span1"><a href="#" class="btn small info" id="v2_tenants_btn" onclick="toggleDetailsBtn(event,'v2_tenants_btn','v2_tenants','v2_tenants_focus');" >detail</a></div>
          </div>
-         <div class="apidetail span16" id="v2_tenants" style="display:none;">
+         <div class="apidetail span16" id="v2_tenants" >
             <div class="row"></div>
             <div class="row">
-               <div class="span16">
+               <div class="span16" id="v2_tenants_focus">
                   <table class="zebra-striped"><?dbfo keep-together="always"?>
 
                      <caption>Get tenants by name Request Parameters</caption>
@@ -1059,17 +1019,16 @@ Date: Sun, 1 Jan 2011 9:00:00 GMT
                </div>
             </div>
 
-            
-            
-     <form action="">
-         <select id="get_tenants_by_name_select" >
+
+         <select id="get_tenants_by_name_select" onchange="toggleSelection('get_tenants_by_name_select');">
              <option value="xml" selected="selected">Response:XML</option>
              <option value="json">Response:JSON</option>
          </select>
-     </form>             
+
             
-            
-            <div class="example" id="get_tenants_by_name_xml" style="display:block">
+            <div class="example" id="get_tenants_by_name_xml" >
+            <!-- Do not delete or edit the next comment -->
+            <!--get_tenants_by_name_xml_selection START-->            
                <b>Get tenants by name Response: XML</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;tenant xmlns="http://docs.openstack.org/identity/api/v2.0"
@@ -1078,13 +1037,14 @@ Date: Sun, 1 Jan 2011 9:00:00 GMT
 &lt;/tenant&gt;
 
 </programlisting></pre>
+            <!-- Do not delete or edit the next comment -->
+            <!--get_tenants_by_name_xml_selection END-->
                </div>
             
             
-            
-            
-            
-            <div class="example" id="get_tenants_by_name_json" style="display:none">
+            <div class="example" id="get_tenants_by_name_json" >
+            <!-- Do not delete or edit the next comment -->
+            <!--get_tenants_by_name_json_selection START-->            
                <b>Get tenants by name Response: JSON</b>
                <pre><programlisting xmlns="http://docbook.org/ns/docbook" xmlns:identity="http://docs.openstack.org/identity/api/v2.0" xmlns:capi="http://docs.openstack.org/common/api/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="javascript">{
   "tenant": {
@@ -1095,9 +1055,12 @@ Date: Sun, 1 Jan 2011 9:00:00 GMT
   }
 }
 </programlisting></pre>
+            <!-- Do not delete or edit the next comment -->
+            <!--get_tenants_by_name_json_selection END--> 
                </div>
-            
-            
+
+</div>
+
 
       <div class="container">
           <div id="footer">
@@ -1105,159 +1068,39 @@ Date: Sun, 1 Jan 2011 9:00:00 GMT
               <p>The OpenStack project is provided under the Apache 2.0 license.</p>
           </div>
       </div>
-      </div><!-- End div v2_tenants -->
+<div id="thebottom">&nbsp;</div>
 
-      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
-      <script type="text/javascript"> charset="utf-8">
-          //<![CDATA[
-      $(document).ready(function() {
-              
-              function toggledetail(event, btnId, focusId){
-                  $('#'+btnId).toggle();
-                  event.preventDefault();
+</div>
 
-                  if($('#'+focusId+':visible').length>0){
-                      $('#'+focusId).focus();
-                  }
-              }
-                            
-              $("#summary_form_btn").click(function(event){
-                  toggledetail(event,'summary_form','summary_form');
-              });
-              
-              $("#all_server_details_btn").click(function(event){
-                  toggledetail(event,'all_server_details','all_server_details');
-              });
-              $("#specific_server_details_btn").click(function(event){
-                  toggledetail(event,'specific_server_details','specific_server_details');
-              });  
-              $("#available_flavors_btn").click(function(event){
-                  toggledetail(event,'available_flavors','available_flavors');
-              }); 
-              $("#additional_details_btn").click(function(event){
-                  toggledetail(event,'additional_details','additional_details');
-              });                 
-              $("#available_flavors_details_btn").click(function(event){
-                  toggledetail(event,'available_flavors_details','available_flavors_details');
-              });                            
-              $("#supported_extensions_btn").click(function(event){
-                  toggledetail(event,'supported_extensions','supported_extensions');
-              });    
-              $("#generate_token_btn").click(function(event){
-                  toggledetail(event,'generate_token','generate_token');
-              });               
-              $("#users_btn").click(function(event){
-                  toggledetail(event,'users','users');
-              }); 
-              $("#tenants_btn").click(function(event){
-                  toggledetail(event,'tenants','tenants');
-              });                                         
-              $("#v2_tenants_btn").click(function(event){
-                  toggledetail(event,'v2_tenants','thebottom');
-              });    
-           
-           
-              function showSelected(selectorId, optionId){
-                  if(selectorId=='get_list_tenants_select'){
-                      if(optionId=='xml'){
-                          $("#get_list_tenants_json").hide();
-                          $("#get_list_tenants_xml").show();
-                      }
-                      else{
-                           $("#get_list_tenants_xml").hide();
-                           $("#get_list_tenants_json").show();                     
-                      }
-                  }
-                  else if(selectorId=='get_tenants_by_name_select'){
-                      if(optionId=='xml'){
-                          $("#get_tenants_by_name_json").hide();
-                          $("#get_tenants_by_name_xml").show();
-                      }
-                      else{
-                           $("#get_tenants_by_name_xml").hide();
-                           $("#get_tenants_by_name_json").show();                     
-                      }                  
-                  }
-                  else if(selectorId=='user_by_name_select'){
-                      if(optionId=='xml'){
-                          $("#user_by_name_json").hide();
-                          $("#user_by_name_xml").show();
-                      }
-                      else{
-                           $("#user_by_name_xml").hide();
-                           $("#user_by_name_json").show();                     
-                      }                  
-                  }    
-                  else if(selectorId=='auth_user_name_req_select'){
-                      if(optionId=='xml'){
-                          $("#auth_user_name_req_json").hide();
-                          $("#auth_user_name_req_xml").show();
-                      }
-                      else{
-                           $("#auth_user_name_req_xml").hide();
-                           $("#auth_user_name_req_json").show();                     
-                      }                   
-                  }              
-                  else if(selectorId=='auth_token_req_select'){
-                      if(optionId=='xml'){
-                          $("#auth_token_req_json").hide();
-                          $("#auth_token_req_xml").show();
-                      }
-                      else{
-                          $("#auth_token_req_xml").hide();
-                          $("#auth_token_req_json").show();                      
-                      }
-                  }  
-                  else if(selectorId=='auth_resp_select'){
-                      if(optionId=='xml'){
-                          $("#auth_resp_json").hide();
-                          $("#auth_resp_xml").show();
-                      }
-                      else{
-                          $("#auth_resp_xml").hide();
-                          $("#auth_resp_json").show();
-                      }
-                  }       
-                  
-              }              
-              
-              $("#get_list_tenants_select").change(function(){                                   
-                  var optionId =  $("#get_list_tenants_select :selected").val();
-                  showSelected('get_list_tenants_select',optionId);
-               });
 
-              $("#get_tenants_by_name_select").change(function(){              
-                  var optionId =  $("#get_tenants_by_name_select :selected").val();
-                  showSelected('get_tenants_by_name_select',optionId);              
-              });
-              
-              $("#user_by_name_select").change(function(){              
-                  var optionId =  $("#user_by_name_select :selected").val();
-                  showSelected('user_by_name_select',optionId);              
-              });
-              
-              
-              $("#auth_user_name_req_select").change(function(){              
-                  var optionId =  $("#auth_user_name_req_select :selected").val();
-                  showSelected('auth_user_name_req_select',optionId);              
-              });
-              
-              $("#auth_token_req_select").change(function(){              
-                  var optionId =  $("#auth_token_req_select :selected").val();
-                  showSelected('auth_token_req_select',optionId);              
-              });  
-              
-                         
-              $("#auth_resp_select").change(function(){              
-                  var optionId =  $("#auth_resp_select :selected").val();
-                  showSelected('auth_resp_select',optionId);              
-              });                                     
-      });
 
-          //]]>
-      </script>
-        <div id="thebottom">&nbsp;<p>&nbsp;<p></div>     
-  </body>
+</div>
+
+
+</div>
+<div id="rightColumn">
+<div id="pageSearcher"></div>
+</div>
+<div class="clear"></div>
+</div>
+</form>
+
+<script type="text/javascript">
+  jQuery.extend(
+    jQuery.expr[':'], { Contains : "jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase())>=0" 
+  });
+
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var pageSearcher = new Searcher.SearchPage();
+    pageSearcher.startSearchingLength = 3; 
+    pageSearcher.init();
+    
+    setSectionsNSelections();                           
+    
+  });
+</script>
+</body>
 </html>
-
 
